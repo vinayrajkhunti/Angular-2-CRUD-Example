@@ -1,0 +1,55 @@
+<div class="container" style="text-align: center;">
+  <h1>{{title}}</h1>
+</div>
+
+<div class="container">
+  <h3>Enter Book Details</h3>
+  <form>
+    <div class="form-group">
+      <label for="name">Book:</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model.name" placeholder="Enter Book name">
+    </div>
+    <div class="form-group">
+      <label for="position">Available Copies:</label>
+      <input type="number" class="form-control" id="position" name="position" [(ngModel)]="model.position" placeholder="Enter No. of Copies">
+    </div>
+    <button type="submit" class="btn btn-primary" (click) = "addEmployee()">Save</button>
+  </form>
+
+<div class="container">
+  <h2>Merchandise Details</h2>            
+  <table class="table table-bordered table-hover table-striped">
+    <thead>
+      <tr>
+        <th width="400">Book Name</th>
+        <th width="400">No. of Copies</th>
+        <th width="400">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let employee of employees; let i=index">
+        <td>{{employee.name}}</td>
+        <td>{{employee.position}}</td>
+        <td>
+          <a class = "btn btn-success" (click) = "editEmployee(i)"> Edit </a>
+          <a class = "btn btn-danger" (click) = "deleteEmployee(i)"> Delete </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Update Details</h3>
+  <form>
+    <div class="form-group">
+      <label for="name">Book:</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model2.name" placeholder="Enter Book name">
+    </div>
+    <div class="form-group">
+      <label for="position">Available Copies:</label>
+      <input type="number" class="form-control" id="position" name="position" [(ngModel)]="model2.position" placeholder="Enter No. of Copies">
+    </div>
+    <button type="submit" class="btn btn-primary" (click) = "updateEmployee()">Update</button>
+    <p></p>
+  </form>
+</div>
